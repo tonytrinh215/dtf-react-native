@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 const HomeScreen = () => {
     return (
             <View>
-                <Text>Hello World Test</Text>
+                <Text>Hello World Test Hello</Text>
             </View>
     )
 }
