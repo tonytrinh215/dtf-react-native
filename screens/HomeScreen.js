@@ -1,12 +1,18 @@
 import { ScrollView, Text, View } from 'react-native';
-import { Card } from 'react-native-elements';
+import { Card, Tile } from 'react-native-elements';
 import { useSelector } from 'react-redux';
+import PT from '../assets/pt-tile.jpg';
 
 const HomeScreen = () => {
     return (
-            <View>
-                <Text>Hello World Test Hello</Text>
-            </View>
+            <ScrollView>
+                <Tile
+                    imageSrc={PT}
+                    title='Physical Therapy'
+                    caption='For all your rehabilitative needs'
+                    featured
+                />
+            </ScrollView>
     )
 }
 

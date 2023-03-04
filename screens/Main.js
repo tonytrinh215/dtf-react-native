@@ -33,7 +33,6 @@ const HomeNavigator = () => {
                         <Icon
                             name='home'
                             type='font-awesome'
-                            onPress={() => navigation.toggleDrawer()}
                         />
                     )
                 })}
@@ -49,19 +48,67 @@ const Main = () => {
             <Tab.Navigator>
                 <Tab.Screen
                     name='Home'
-                    component={HomeScreen}
+                    component={HomeNavigator}
+                    options={{
+                        title: 'Home',
+                        tabBarIcon: ({ color }) => (
+                            <Icon
+                                name='home'
+                                type='font-awesome'
+                                size={24}
+                                iconStyle={{ width: 24 }}
+                                color={color}
+                            />
+                        )
+                    }}
                 />
                 <Tab.Screen
                     name='Booking'
                     component={BookingScreen}
+                    options={{
+                        title: 'Booking',
+                        tabBarIcon: ({ color }) => (
+                            <Icon
+                                name='list'
+                                type='font-awesome'
+                                size={24}
+                                iconStyle={{ width: 24 }}
+                                color={color}
+                            />
+                        )
+                    }}
                 />
                 <Tab.Screen
                     name='Contact'
                     component={ContactScreen}
+                    options={{
+                        title: 'Contact',
+                        tabBarIcon: ({ color }) => (
+                            <Icon
+                                name='address-card'
+                                type='font-awesome'
+                                size={24}
+                                iconStyle={{ width: 24 }}
+                                color={color}
+                            />
+                        )
+                    }}
                 />
                 <Tab.Screen
                     name='My Profile'
                     component={UserScreen}
+                    options={{
+                        title: 'My Profile',
+                        tabBarIcon: ({ color }) => (
+                            <Icon
+                                name='user'
+                                type='font-awesome'
+                                size={24}
+                                iconStyle={{ width: 24 }}
+                                color={color}
+                            />
+                        )
+                    }}
                 />
             </Tab.Navigator>
     )
