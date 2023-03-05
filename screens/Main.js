@@ -11,6 +11,7 @@ import HomeScreen from './HomeScreen';
 import ContactScreen from './ContactScreen';
 import BookingScreen from './BookingScreen';
 import UserScreen from './UserScreen';
+import ServicesScreen from './ServicesScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -28,13 +29,58 @@ const HomeNavigator = () => {
                 name='Home'
                 component={HomeScreen}
                 options={({ navigation }) => ({
-                    title: 'Home',
-                    headerLeft: () => (
-                        <Icon
-                            name='home'
-                            type='font-awesome'
-                        />
-                    )
+                    title: 'DTF'
+                })}
+            />
+            <Stack.Screen
+                name='Services'
+                component={ServicesScreen}
+                options={({ route }) => ({
+                    title: route.params.category + ' Services'
+                })}
+            />
+        </Stack.Navigator>
+    )
+}
+
+const BookingNavigator = () => {
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen
+                name='Booking'
+                component={BookingScreen}
+                options={({ navigation }) => ({
+                    title: 'Booking'
+                })}
+            />
+        </Stack.Navigator>
+    )
+}
+
+const ContactNavigator = () => {
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen
+                name='Contact'
+                component={ContactScreen}
+                options={({ navigation }) => ({
+                    title: 'Contact Us'
+                })}
+            />
+        </Stack.Navigator>
+    )
+}
+const UserNavigator = () => {
+    const Stack = createStackNavigator();
+    return (
+        <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Screen
+                name='User'
+                component={UserScreen}
+                options={({ navigation }) => ({
+                    title: 'My Profile'
                 })}
             />
         </Stack.Navigator>
@@ -64,7 +110,7 @@ const Main = () => {
                 />
                 <Tab.Screen
                     name='Booking'
-                    component={BookingScreen}
+                    component={BookingNavigator}
                     options={{
                         title: 'Booking',
                         tabBarIcon: ({ color }) => (
@@ -80,7 +126,7 @@ const Main = () => {
                 />
                 <Tab.Screen
                     name='Contact'
-                    component={ContactScreen}
+                    component={ContactNavigator}
                     options={{
                         title: 'Contact',
                         tabBarIcon: ({ color }) => (
@@ -96,7 +142,7 @@ const Main = () => {
                 />
                 <Tab.Screen
                     name='My Profile'
-                    component={UserScreen}
+                    component={UserNavigator}
                     options={{
                         title: 'My Profile',
                         tabBarIcon: ({ color }) => (
